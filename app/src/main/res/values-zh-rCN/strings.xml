@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">井字棋</string>
+    <string name="android_term">轮到 Android 了</string>
+    <string name="your_term">轮到你了（X）</string>
+    <string name="tie">平局！</string>
+    <string name="you_won">你赢了！</string>
+    <string name="android_won">安卓赢了！</string>
+    <string name="new_game">新游戏</string>
+    <string name="you_go_first">你先走</string>
+    <string name="user_won">胜利：</string>
+    <string name="computer_won">失败：</string>
+    <string name="tie_num">平局：</string>
+</resources>
