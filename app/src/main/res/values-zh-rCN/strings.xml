@@ -10,4 +10,13 @@
     <string name="user_won">胜利：</string>
     <string name="computer_won">失败：</string>
     <string name="tie_num">平局：</string>
+    <string name="difficulty">难度</string>
+    <string name="easy">简单</string>
+    <string name="harder">困难</string>
+    <string name="expert">专家</string>
+    <string name="player">玩家</string>
+    <string name="computer">电脑</string>
+    <string name="who_play_first">谁先下？</string>
+    <string name="confirm">确认</string>
+    <string name="exit">退出</string>
 </resources>

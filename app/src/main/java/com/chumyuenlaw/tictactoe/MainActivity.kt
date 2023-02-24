@@ -68,7 +68,6 @@ class MainActivity : AppCompatActivity() {
         loadBattleStatistics()
 
         startNewGame()
-        println("onCreate")
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -218,13 +217,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun whoPlayFirstDialog() {
-        val players = arrayOf("You", "Computer")
+
+        val players = arrayOf(getString(R.string.player), getString(R.string.computer))
         AlertDialog.Builder(this)
-            .setTitle("Who plays first?")
+            .setTitle(R.string.who_play_first)
             .setSingleChoiceItems(players, selectedPlayer) { _, which ->
                 selectedPlayer = which
             }
-            .setPositiveButton("Confirm") { _,_ ->
+            .setPositiveButton(R.string.confirm) { _,_ ->
                 startNewGame()
             }
             .show()
@@ -269,13 +269,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun difficultySelection (){
-        val players = arrayOf("Easy", "Harder", "Expert")
+        val players = arrayOf(getString(R.string.easy), getString(R.string.harder), getString(R.string.expert) )
         AlertDialog.Builder(this)
-            .setTitle("Difficulty")
+            .setTitle(R.string.difficulty)
             .setSingleChoiceItems(players, gameDifficulty) { _, which ->
                 gameDifficulty = which
             }
-            .setPositiveButton("Confirm") { _,_ ->
+            .setPositiveButton(R.string.confirm) { _,_ ->
                 mGame.difficulty = gameDifficulty
                 startNewGame()
             }

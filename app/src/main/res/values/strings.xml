@@ -7,7 +7,16 @@
     <string name="android_won">Android won!</string>
     <string name="new_game">Start a New Game</string>
     <string name="you_go_first">You go first.</string>
-    <string name="user_won">Victory: </string>
-    <string name="computer_won">Defeat: </string>
-    <string name="tie_num">Tie</string>
+    <string name="user_won">Victory:&#160;</string>
+    <string name="computer_won">Defeat:&#160;</string>
+    <string name="tie_num">Tie:&#160;</string>
+    <string name="difficulty">Difficulty</string>
+    <string name="confirm">CONFIRM</string>
+    <string name="easy">Easy</string>
+    <string name="harder">Harder</string>
+    <string name="expert">Expert</string>
+    <string name="player">Player</string>
+    <string name="computer">Computer</string>
+    <string name="who_play_first">Who plays first?</string>
+    <string name="exit">Exit</string>
 </resources>

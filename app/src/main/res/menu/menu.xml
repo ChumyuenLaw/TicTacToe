@@ -5,10 +5,10 @@
     tools:context=".MainActivity">
     <item
         android:id="@+id/menu_difficulty"
-        android:title="Difficulty"
+        android:title="@string/difficulty"
         app:showAsAction="never" />
     <item
         android:id="@+id/menu_exit"
-        android:title="Exit"
+        android:title="@string/exit"
         app:showAsAction="never" />
 </menu>
