@@ -8,6 +8,10 @@
         android:title="@string/difficulty"
         app:showAsAction="never" />
     <item
+        android:id="@+id/menu_clear_stat"
+        android:title="Clear cache"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/menu_exit"
         android:title="@string/exit"
         app:showAsAction="never" />

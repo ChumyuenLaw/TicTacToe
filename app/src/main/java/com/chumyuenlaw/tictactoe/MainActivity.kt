@@ -260,12 +260,24 @@ class MainActivity : AppCompatActivity() {
                 difficultySelection()
                 return true
             }
+            R.id.menu_clear_stat -> {
+                clearCache()
+                return true
+            }
             R.id.menu_exit -> {
                 finish()
                 return true
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun clearCache () {
+        val pref = getSharedPreferences("battle_statistics", Context.MODE_PRIVATE)
+        pref.edit().putInt("user_won", 0).apply()
+        pref.edit().putInt("computer_won", 0).apply()
+        pref.edit().putInt("tie", 0).apply()
+        loadBattleStatistics()
     }
 
     private fun difficultySelection (){
