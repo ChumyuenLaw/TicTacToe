@@ -9,6 +9,10 @@ computer has won, and ties. You should display this information using TextView c
 5. To create options menu with two functions
 - Difficulty – to set the AI difficulty level to Easy (Level 1), Harder (Level 2), or Expert (Level 3)
 - Quit – to quit the app
+- Clear cache - to clear the game statistics
 
 ## To-do-list
 1. Adding animation and sound effects to the game.
+2. Adding battle result information - congratulation when winning, encouragement when failure.
+3. UI improvement
+4. Chess board improvement
