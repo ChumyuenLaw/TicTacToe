@@ -206,7 +206,7 @@
             android:layout_marginTop="20dp"
             android:gravity="center_horizontal"
             android:text="info"
-            android:textSize="20sp"></TextView>
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/button_restart"

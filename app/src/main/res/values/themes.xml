@@ -12,6 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="android:soundEffectsEnabled">false</item>
     </style>
 
     <style name="Theme.TicTacToe.Fullscreen" parent="Theme.TicTacToe">
@@ -19,10 +20,12 @@
         </item>
         <item name="android:windowActionBarOverlay">true</item>
         <item name="android:windowBackground">@null</item>
+        <item name="android:soundEffectsEnabled">false</item>
     </style>
 
     <style name="ThemeOverlay.TicTacToe.FullscreenContainer" parent="">
         <item name="fullscreenBackgroundColor">@color/light_blue_600</item>
         <item name="fullscreenTextColor">@color/light_blue_A200</item>
+        <item name="android:soundEffectsEnabled">false</item>
     </style>
 </resources>

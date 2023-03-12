@@ -11,9 +11,13 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="92dp"
-        android:text="Settings"
+        android:layout_marginTop="56dp"
+        android:fontFamily="@font/righteous"
+        android:text="SETTINGS"
+        android:textColor="#FF7A3E65"
+        android:textSize="60sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,34 +25,126 @@
         android:id="@+id/radioGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:checkedButton="@+id/radio_button_1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.0">
 
         <TextView
             android:id="@+id/settings_difficulty_header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Difficulty Selection"
-            />
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Difficulty"
+            android:textColor="#FF7A3E65"
+            android:textSize="24sp" />
+
         <RadioButton
             android:id="@+id/easy"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Easy" />
+            android:layout_marginLeft="5dp"
+            android:fontFamily="@font/poppins"
+            android:text="Easy"
+            android:textSize="16sp" />
 
         <RadioButton
             android:id="@+id/moderate"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Moderate" />
+            android:layout_marginLeft="5dp"
+            android:fontFamily="@font/poppins"
+            android:text="Moderate"
+            android:textSize="16sp" />
 
         <RadioButton
             android:id="@+id/hard"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Hard" />
+            android:layout_marginLeft="5dp"
+            android:fontFamily="@font/poppins"
+            android:text="Hard"
+            android:textSize="16sp" />
     </RadioGroup>
+
+    <TextView
+        android:id="@+id/settings_sound_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Sound"
+        android:textColor="#FF7A3E65"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/effect_music_switch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/poppins"
+        android:checked="true"
+        android:text="Sound Effect"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settings_sound_header" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/background_music_switch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/poppins"
+        android:checked="true"
+        android:text="Background Music"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/effect_music_switch"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/clear_cache_button"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="205dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="32dp"
+        android:text="Clear Cache"
+        app:backgroundTint="#617143"
+        app:cornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/background_music_switch" />
+
+    <Button
+        android:id="@+id/about_me_button"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="205dp"
+        android:layout_height="45dp"
+        android:text="About Me"
+        app:backgroundTint="#617143"
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clear_cache_button"
+        app:layout_constraintVertical_bias="0.128" />
 </androidx.constraintlayout.widget.ConstraintLayout>
