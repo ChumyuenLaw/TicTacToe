@@ -19,4 +19,7 @@
     <string name="computer">Computer</string>
     <string name="who_play_first">Who plays first?</string>
     <string name="exit">Exit</string>
+    <string name="title_activity_main_menu">MainMenuActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>

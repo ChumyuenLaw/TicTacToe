@@ -1,17 +1,27 @@
 package com.chumyuenlaw.tictactoe
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import android.os.Build
+import android.os.Build.VERSION_CODES.S
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import java.util.Timer
+import kotlin.concurrent.schedule
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,12 +36,6 @@ class MainActivity : AppCompatActivity() {
 
     // Game Over
     var mGameOver = false
-
-    lateinit var userWonTV: TextView
-
-    lateinit var computerWonTV: TextView
-
-    lateinit var tieTV: TextView
 
     var userWon: Int = 0
 
@@ -61,11 +65,9 @@ class MainActivity : AppCompatActivity() {
         // Buttons making up the board
         mBoardButtons = arrayOf(button0, button1, button2, button3, button4, button5, button6, button7, button8)
 
-        userWonTV = findViewById(R.id.user_won)
-        computerWonTV = findViewById(R.id.computer_won)
-        tieTV = findViewById(R.id.tie)
-
         loadBattleStatistics()
+
+        loadGameDifficulty()
 
         startNewGame()
     }
@@ -129,16 +131,71 @@ class MainActivity : AppCompatActivity() {
             computerWon = pref.getInt("computer_won", 0)
             tie = pref.getInt("tie", 0)
         }
-        updateBattleStatistics()
     }
 
-    private fun updateBattleStatistics() {
-        userWonTV.setText(R.string.user_won)
-        userWonTV.append(userWon.toString())
-        computerWonTV.setText(R.string.computer_won)
-        computerWonTV.append(computerWon.toString())
-        tieTV.setText(R.string.tie_num)
-        tieTV.append(tie.toString())
+    private fun loadGameDifficulty() {
+        val pref = getSharedPreferences("game_difficulty", Context.MODE_PRIVATE)
+        if (pref != null) {
+            gameDifficulty = pref.getInt("game_difficulty", 0)
+        }
+        mGame.difficulty = gameDifficulty
+    }
+
+//    private fun loadBattleStatistics() {
+//        val pref = getSharedPreferences("battle_statistics", Context.MODE_PRIVATE)
+//        if (pref != null) {
+//            userWon = pref.getInt("user_won", 0)
+//            computerWon = pref.getInt("computer_won", 0)
+//            tie = pref.getInt("tie", 0)
+//        }
+//        updateBattleStatistics()
+//    }
+
+//    private fun updateBattleStatistics() {
+//        userWonTV.setText(R.string.user_won)
+//        userWonTV.append(userWon.toString())
+//        computerWonTV.setText(R.string.computer_won)
+//        computerWonTV.append(computerWon.toString())
+//        tieTV.setText(R.string.tie_num)
+//        tieTV.append(tie.toString())
+//    }
+
+    private fun disableAllButtons(): ArrayList<Int> {
+        val availableList = ArrayList<Int>()
+        for (i in mBoardButtons.indices) {
+            if(mBoardButtons[i].isEnabled) {
+                mBoardButtons[i].isEnabled = false
+                availableList.add(i)
+            }
+        }
+        return availableList;
+    }
+
+    private fun activateAvailableButtons(availableList : ArrayList<Int>) {
+        for (i in availableList.indices) {
+            mBoardButtons[availableList[i]].isEnabled = true
+        }
+    }
+
+    private fun gameResult(winner : Int) {
+        if (winner == 0) {
+            information.text = getString(R.string.your_term)
+        } else if (winner == 1) {
+            information.text = getString(R.string.tie)
+            tie++
+            mGameOver = true
+            saveBattleStatistics(userWon, computerWon, tie)
+        } else if (winner == 2) {
+            information.text = getString(R.string.you_won)
+            userWon++
+            mGameOver = true
+            saveBattleStatistics(userWon, computerWon, tie)
+        } else {
+            information.text = getString(R.string.android_won)
+            computerWon++
+            mGameOver = true
+            saveBattleStatistics(userWon, computerWon, tie)
+        }
     }
 
     //--- Set up the game board.
@@ -156,8 +213,17 @@ class MainActivity : AppCompatActivity() {
         }
         else if (selectedPlayer == 1){
             information.text = getString(R.string.android_term)
-            val move = mGame.computerMove
-            setMove(TicTacToeGame.COMPUTER_PLAYER, move)
+            val availableList = disableAllButtons()
+            Handler().postDelayed({
+                val move = mGame.computerMove
+                runOnUiThread {
+                    setMove(TicTacToeGame.COMPUTER_PLAYER, move)
+                    information.text = getString(R.string.your_term)
+                }
+                availableList.remove(move)
+                activateAvailableButtons(availableList)
+                availableList.clear()
+            }, 1000)
         }
     }
 
@@ -182,42 +248,27 @@ class MainActivity : AppCompatActivity() {
                 //--- If no winner yet, let the computer make a move
                 var winner = mGame.checkForWinner()
                 if (winner == 0) {
-                    information.text = R.string.android_term.toString()
-                    val move = mGame.computerMove
-                    setMove(TicTacToeGame.COMPUTER_PLAYER, move)
-                    winner = mGame.checkForWinner()
-                }
-                if (winner == 0) {
-                    information.setTextColor(Color.rgb(0, 0, 0))
-                    information.text = getString(R.string.your_term)
-                } else if (winner == 1) {
-                    information.setTextColor(Color.rgb(0, 0, 200))
-                    information.text = getString(R.string.tie)
-                    tie++
-                    mGameOver = true
-                    updateBattleStatistics()
-                    saveBattleStatistics(userWon, computerWon, tie)
-                } else if (winner == 2) {
-                    information.setTextColor(Color.rgb(0, 200, 0))
-                    information.text = getString(R.string.you_won)
-                    userWon++
-                    mGameOver = true
-                    updateBattleStatistics()
-                    saveBattleStatistics(userWon, computerWon, tie)
+                    val availableList = disableAllButtons()
+                    information.setText(R.string.android_term)
+                    Handler().postDelayed({
+                        val move = mGame.computerMove
+                        runOnUiThread {
+                            setMove(TicTacToeGame.COMPUTER_PLAYER, move)
+                            winner = mGame.checkForWinner()
+                            gameResult(winner)
+                        }
+                        availableList.remove(move)
+                        activateAvailableButtons(availableList)
+                        availableList.clear()
+                    },1000)
                 } else {
-                    information.setTextColor(Color.rgb(200, 0, 0))
-                    information.text = getString(R.string.android_won)
-                    computerWon++
-                    mGameOver = true
-                    updateBattleStatistics()
-                    saveBattleStatistics(userWon, computerWon, tie)
+                    gameResult(winner)
                 }
             }
         }
     }
 
     private fun whoPlayFirstDialog() {
-
         val players = arrayOf(getString(R.string.player), getString(R.string.computer))
         AlertDialog.Builder(this)
             .setTitle(R.string.who_play_first)
@@ -234,10 +285,11 @@ class MainActivity : AppCompatActivity() {
         mGame.setMove(player, location)
         mBoardButtons[location].isEnabled = false
         mBoardButtons[location].text = player.toString()
-        if (player == TicTacToeGame.HUMAN_PLAYER)
-            mBoardButtons[location]!!.setTextColor(Color.parseColor("#ff0000"))
-        else
-            mBoardButtons[location]!!.setTextColor(Color.parseColor("#00ff00"))
+        if (player == TicTacToeGame.HUMAN_PLAYER) {
+            mBoardButtons[location].setTextColor(Color.parseColor("#E7AB9A"))
+        } else {
+            mBoardButtons[location].setTextColor(Color.parseColor("#DF7857"))
+        }
     }
 
     //--- OnClickListener for Restart a New Game Button
@@ -245,52 +297,52 @@ class MainActivity : AppCompatActivity() {
         whoPlayFirstDialog()
     }
 
-    // --- Option Menu ---
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu to use in the action bar
-        val inflater = menuInflater
-        inflater.inflate(R.menu.menu, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
+//    // --- Option Menu ---
+//    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+//        // Inflate the menu to use in the action bar
+//        val inflater = menuInflater
+//        inflater.inflate(R.menu.menu, menu)
+//        return super.onCreateOptionsMenu(menu)
+//    }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle presses on the action bar menu items
-        when (item.itemId) {
-            R.id.menu_difficulty -> {
-                difficultySelection()
-                return true
-            }
-            R.id.menu_clear_stat -> {
-                clearCache()
-                return true
-            }
-            R.id.menu_exit -> {
-                finish()
-                return true
-            }
-        }
-        return super.onOptionsItemSelected(item)
-    }
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        // Handle presses on the action bar menu items
+//        when (item.itemId) {
+//            R.id.menu_difficulty -> {
+//                difficultySelection()
+//                return true
+//            }
+//            R.id.menu_clear_stat -> {
+//                clearCache()
+//                return true
+//            }
+//            R.id.menu_exit -> {
+//                finish()
+//                return true
+//            }
+//        }
+//        return super.onOptionsItemSelected(item)
+//    }
 
-    private fun clearCache () {
-        val pref = getSharedPreferences("battle_statistics", Context.MODE_PRIVATE)
-        pref.edit().putInt("user_won", 0).apply()
-        pref.edit().putInt("computer_won", 0).apply()
-        pref.edit().putInt("tie", 0).apply()
-        loadBattleStatistics()
-    }
+//    private fun clearCache () {
+//        val pref = getSharedPreferences("battle_statistics", Context.MODE_PRIVATE)
+//        pref.edit().putInt("user_won", 0).apply()
+//        pref.edit().putInt("computer_won", 0).apply()
+//        pref.edit().putInt("tie", 0).apply()
+//        loadBattleStatistics()
+//    }
 
-    private fun difficultySelection (){
-        val players = arrayOf(getString(R.string.easy), getString(R.string.harder), getString(R.string.expert) )
-        AlertDialog.Builder(this)
-            .setTitle(R.string.difficulty)
-            .setSingleChoiceItems(players, gameDifficulty) { _, which ->
-                gameDifficulty = which
-            }
-            .setPositiveButton(R.string.confirm) { _,_ ->
-                mGame.difficulty = gameDifficulty
-                startNewGame()
-            }
-            .show()
-    }
+//    private fun difficultySelection (){
+//        val players = arrayOf(getString(R.string.easy), getString(R.string.harder), getString(R.string.expert) )
+//        AlertDialog.Builder(this)
+//            .setTitle(R.string.difficulty)
+//            .setSingleChoiceItems(players, gameDifficulty) { _, which ->
+//                gameDifficulty = which
+//            }
+//            .setPositiveButton(R.string.confirm) { _,_ ->
+//                mGame.difficulty = gameDifficulty
+//                startNewGame()
+//            }
+//            .show()
+//    }
 }

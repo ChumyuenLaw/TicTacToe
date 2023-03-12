@@ -3,7 +3,9 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:padding="10dp" >
+    android:padding="10dp"
+    android:background="#EDE9D5"
+    android:id="@+id/constraintLayout2">
     <TableLayout
         android:paddingTop="20dp"
         android:layout_width="wrap_content"
@@ -113,31 +115,7 @@
             android:text="info"
             android:textSize="20sp" >
         </TextView>
-        <TextView
-            android:id="@+id/user_won"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:gravity="center_horizontal"
-            android:text="@string/user_won"
-            android:textSize="20sp"/>
 
-        <TextView
-            android:id="@+id/computer_won"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:gravity="center_horizontal"
-            android:text="@string/computer_won"
-            android:textSize="20sp"/>
-        <TextView
-            android:id="@+id/tie"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:gravity="center_horizontal"
-            android:text="@string/tie_num"
-            android:textSize="20sp"/>
         <Button
             android:id="@+id/button_restart"
             android:layout_width="wrap_content"

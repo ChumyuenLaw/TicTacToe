@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EDE9D5"
+    android:theme="@style/ThemeOverlay.TicTacToe.FullscreenContainer"
+    tools:context=".MainMenuActivity">
+
+    <!-- The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc. -->
+
+    <!-- This FrameLayout insets its children based on system windows using
+         android:fitsSystemWindows. -->
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/fullscreen_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lobster"
+                android:gravity="center"
+                android:keepScreenOn="true"
+                android:text="Tic Tac Toe"
+                android:textColor="#617143"
+                android:textSize="50sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.391" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="208dp"
+                android:layout_marginBottom="52dp"
+                app:layout_constraintBottom_toTopOf="@+id/fullscreen_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/close_256" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="52dp"
+                app:layout_constraintBottom_toTopOf="@+id/fullscreen_content"
+                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                app:srcCompat="@drawable/tube_256" />
+
+            <Button
+                android:id="@+id/menu_start_game_button"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+                android:layout_width="237dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/righteous"
+                android:text="NEW GAME"
+                android:textColor="#7A3E65"
+                android:textSize="20sp"
+                app:cornerRadius="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fullscreen_content"
+                app:strokeColor="@color/black" />
+
+            <Button
+                android:id="@+id/menu_statistics_button"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+                android:layout_width="237dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/righteous"
+                android:text="Statistics"
+                android:textColor="#7A3E65"
+                android:textSize="20sp"
+                app:cornerRadius="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/menu_start_game_button"
+                app:strokeColor="@color/black" />
+
+            <Button
+                android:id="@+id/menu_settings_button"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+                android:layout_width="237dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/righteous"
+                android:text="Settings"
+                android:textColor="#7A3E65"
+                android:textSize="20sp"
+                app:cornerRadius="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/menu_statistics_button"
+                app:strokeColor="@color/black" />
+
+            <Button
+                android:id="@+id/menu_exit_button"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+                android:layout_width="237dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/righteous"
+                android:text="Exit"
+                android:textColor="#7A3E65"
+                android:textSize="20sp"
+                app:cornerRadius="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/menu_settings_button"
+                app:strokeColor="@color/black" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </FrameLayout>
+
+</FrameLayout>
