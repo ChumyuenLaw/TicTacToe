@@ -12,7 +12,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="179dp">
+        android:layout_height="158dp">
 
         <ImageView
             android:id="@+id/imageView6"
@@ -31,27 +31,34 @@
             app:srcCompat="@drawable/close_256" />
 
         <TextView
-            android:id="@+id/textView_circle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textView_cross"
-            app:layout_constraintHorizontal_bias="0.097"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView6"
-            app:layout_constraintVertical_bias="0.183" />
-
-        <TextView
             android:id="@+id/textView_cross"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="24dp"
-            android:text="TextView"
+            android:fontFamily="@font/righteous"
+            android:gravity="center"
+            android:text="10"
+            android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView7"
-            app:layout_constraintVertical_bias="0.183" />
+            app:layout_constraintVertical_bias="0.367" />
+
+        <TextView
+            android:id="@+id/textView_circle"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/righteous"
+            android:gravity="center"
+            android:text="10"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView6"
+            app:layout_constraintVertical_bias="0.377" />
 
         <ImageView
             android:id="@+id/imageView8"
@@ -64,6 +71,18 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.134"
             app:srcCompat="@drawable/vs" />
+
+        <TextView
+            android:id="@+id/textView_game_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_bold"
+            android:gravity="center"
+            android:textSize="28sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textView_cross"
+            app:layout_constraintStart_toEndOf="@+id/textView_circle"
+            app:layout_constraintTop_toBottomOf="@+id/imageView8" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TableLayout
@@ -194,7 +213,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="168dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:orientation="vertical"
         android:padding="10dp">
@@ -204,7 +223,8 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:gravity="center_horizontal"
+            android:fontFamily="@font/poppins"
+            android:gravity="center"
             android:text="info"
             android:textSize="20sp" />
 
@@ -212,11 +232,12 @@
             android:id="@+id/button_restart"
             style="@style/Widget.MaterialComponents.Button"
             android:layout_width="wrap_content"
-            android:layout_height="63dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
+            android:fontFamily="@font/righteous"
             android:onClick="newGame"
-            android:text="@string/new_game"
+            android:text="@string/gameboard_button_new_game"
             android:textSize="20sp"
             app:backgroundTint="#617143"
             app:cornerRadius="20dp" />

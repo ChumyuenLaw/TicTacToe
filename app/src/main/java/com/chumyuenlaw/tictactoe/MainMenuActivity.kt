@@ -77,6 +77,4 @@ class MainMenuActivity : AppCompatActivity() {
         else
             soundEffectVolume = 0f
     }
-
-
 }

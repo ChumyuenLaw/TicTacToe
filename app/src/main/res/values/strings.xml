@@ -1,25 +1,38 @@
 <resources>
     <string name="app_name">TicTacToe</string>
-    <string name="android_term">It\'s Android\'s turn.</string>
-    <string name="your_term">It\'s your turn (X).</string>
-    <string name="tie">It\'s a tie!</string>
-    <string name="you_won">You won!</string>
-    <string name="android_won">Android won!</string>
-    <string name="new_game">Start a New Game</string>
-    <string name="you_go_first">You go first.</string>
-    <string name="user_won">Victory:&#160;</string>
-    <string name="computer_won">Defeat:&#160;</string>
-    <string name="tie_num">Tie:&#160;</string>
-    <string name="difficulty">Difficulty</string>
-    <string name="confirm">CONFIRM</string>
-    <string name="easy">Easy</string>
-    <string name="harder">Harder</string>
-    <string name="expert">Expert</string>
-    <string name="player">Player</string>
-    <string name="computer">Computer</string>
-    <string name="who_play_first">Who plays first?</string>
-    <string name="exit">Exit</string>
-    <string name="title_activity_main_menu">MainMenuActivity</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="menu_new_game">New Game</string>
+    <string name="menu_statistics">Statistics</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_exit">Exit</string>
+
+    <string name="settings_title">SETTINGS</string>
+    <string name="settings_difficulty_header">Difficulty</string>
+    <string name="settings_difficulty_easy">Easy</string>
+    <string name="settings_difficulty_moderate">Moderate</string>
+    <string name="settings_difficulty_hard">Hard</string>
+    <string name="settings_sound_header">Sound</string>
+    <string name="settings_sound_effects">Sound Effects</string>
+    <string name="settings_sound_bgm">Background Music</string>
+    <string name="settings_clear_cache">Clear Cache</string>
+    <string name="settings_about_me">About Me</string>
+
+    <string name="statistics_ai_wins">AI wins</string>
+    <string name="statistics_player_wins">Player wins</string>
+    <string name="statistics_draw">Draw</string>
+
+    <string name="gameboard_gameresult_victory">VICTORY</string>
+    <string name="gameboard_gameresult_defeat">DEFEAT</string>
+    <string name="gameboard_gameresult_draw">DRAW</string>
+    <string name="gameboard_info_ai_term">AI is thinking…</string>
+    <string name="gameboard_info_player_term">Your turn!</string>
+    <string name="gameboard_info_congratulation">You win! Congratulation!</string>
+    <string name="gameboard_info_encougarement">Be more careful!</string>
+    <string name="gameboard_info_think_more">Oops! Almost successful!</string>
+    <string name="gameboard_button_new_game">Play Again</string>
+
+    <string name="gameboard_play_first_dialog_header">Who plays first?</string>
+    <string name="gameboard_play_first_dialog_ai">AI</string>
+    <string name="gameboard_play_first_dialog_player">Player</string>
+    <string name="gameboard_play_first_dialog_button_confirm">CONFIRM</string>
 </resources>

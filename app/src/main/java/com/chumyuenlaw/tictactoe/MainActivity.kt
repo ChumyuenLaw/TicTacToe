@@ -4,7 +4,6 @@ import android.app.AlertDialog
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
-import android.media.MediaPlayer
 import android.media.SoundPool
 import android.os.Bundle
 import android.os.Handler
@@ -25,11 +24,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var information : TextView
     private lateinit var aiWinTW : TextView
     private lateinit var playerWinTW : TextView
+    private lateinit var gameResultTW : TextView
 
     // Sound Effects
-    private lateinit var clickCrossPlayer : MediaPlayer
-    private lateinit var clickCirclePlayer : MediaPlayer
-    private lateinit var clickCommonPlayer: MediaPlayer
     private lateinit var soundPool : SoundPool
     private var clickCross = -1
     private var clickCircle = -1
@@ -60,12 +57,7 @@ class MainActivity : AppCompatActivity() {
 
         playerWinTW = findViewById(R.id.textView_cross)
 
-        clickCrossPlayer = MediaPlayer.create(this, R.raw.click2)
-
-        clickCirclePlayer = MediaPlayer.create(this, R.raw.click)
-
-        clickCommonPlayer = MediaPlayer.create(this, R.raw.click3)
-
+        gameResultTW = findViewById(R.id.textView_game_result)
 
         soundPool = SoundPool.Builder().build()
         clickCircle = soundPool.load(this, R.raw.click, 1)
@@ -114,6 +106,7 @@ class MainActivity : AppCompatActivity() {
         outState.putSerializable("button_is_enable", buttonsIsEnable)
         outState.putSerializable("info", information.text.toString())
         outState.putSerializable("info_color", information.currentTextColor)
+        outState.putSerializable("game_result", gameResultTW.text.toString())
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
@@ -136,6 +129,7 @@ class MainActivity : AppCompatActivity() {
         }
         information.text = savedInstanceState.getSerializable("info") as String
         information.setTextColor(savedInstanceState.getSerializable("info_color") as Int)
+        gameResultTW.text = savedInstanceState.getSerializable("game_result") as String
 
         val winner = mGame.checkForWinner()
         if (winner != 0)
@@ -160,10 +154,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateBattleStatistics() {
-        playerWinTW.setText(R.string.user_won)
-        playerWinTW.append(userWon.toString())
-        aiWinTW.setText(R.string.computer_won)
-        aiWinTW.append(computerWon.toString())
+        playerWinTW.text = userWon.toString()
+        aiWinTW.text = computerWon.toString()
     }
 
     private fun loadGameDifficulty() {
@@ -193,19 +185,22 @@ class MainActivity : AppCompatActivity() {
 
     private fun gameResult(winner : Int) {
         if (winner == 0) {
-            information.text = getString(R.string.your_term)
+            information.text = getString(R.string.gameboard_info_player_term)
         } else if (winner == 1) {
-            information.text = getString(R.string.tie)
+            gameResultTW.text = getString(R.string.gameboard_gameresult_draw)
+            information.text = getString(R.string.gameboard_info_think_more)
             tie++
             mGameOver = true
             saveBattleStatistics(userWon, computerWon, tie)
         } else if (winner == 2) {
-            information.text = getString(R.string.you_won)
+            gameResultTW.text = getString(R.string.gameboard_gameresult_victory)
+            information.text = getString(R.string.gameboard_info_congratulation)
             userWon++
             mGameOver = true
             saveBattleStatistics(userWon, computerWon, tie)
         } else {
-            information.text = getString(R.string.android_won)
+            gameResultTW.text = getString(R.string.gameboard_gameresult_defeat)
+            information.text = getString(R.string.gameboard_info_encougarement)
             computerWon++
             mGameOver = true
             saveBattleStatistics(userWon, computerWon, tie)
@@ -223,11 +218,13 @@ class MainActivity : AppCompatActivity() {
             mBoardButtons[i].isEnabled = true
         }
 
+        gameResultTW.text = ""
+
         if (selectedPlayer == 0) {
-            information.text = getString(R.string.your_term)
+            information.text = getString(R.string.gameboard_info_player_term)
         }
         else if (selectedPlayer == 1){
-            information.text = getString(R.string.android_term)
+            information.text = getString(R.string.gameboard_info_ai_term)
             val availableList = disableAllButtons()
             Handler().postDelayed({
                 val move = mGame.computerMove
@@ -235,7 +232,7 @@ class MainActivity : AppCompatActivity() {
                 runOnUiThread {
                     soundPool.play(clickCircle, soundEffectVolume, soundEffectVolume, 1, 0, 1f)
                     setMove(TicTacToeGame.COMPUTER_PLAYER, move)
-                    information.text = getString(R.string.your_term)
+                    information.text = getString(R.string.gameboard_info_player_term)
                 }
                 availableList.remove(move)
                 activateAvailableButtons(availableList)
@@ -269,7 +266,7 @@ class MainActivity : AppCompatActivity() {
                 var winner = mGame.checkForWinner()
                 if (winner == 0) {
                     val availableList = disableAllButtons()
-                    information.setText(R.string.android_term)
+                    information.setText(R.string.gameboard_info_ai_term)
                     Handler().postDelayed({
                         val move = mGame.computerMove
                         runOnUiThread {
@@ -290,13 +287,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun whoPlayFirstDialog() {
-        val players = arrayOf(getString(R.string.player), getString(R.string.computer))
+        val players = arrayOf(getString(R.string.gameboard_play_first_dialog_player), getString(R.string.gameboard_play_first_dialog_ai))
         AlertDialog.Builder(this)
-            .setTitle(R.string.who_play_first)
+            .setTitle(R.string.gameboard_play_first_dialog_header)
             .setSingleChoiceItems(players, selectedPlayer) { _, which ->
                 selectedPlayer = which
             }
-            .setPositiveButton(R.string.confirm) { _,_ ->
+            .setPositiveButton(R.string.gameboard_play_first_dialog_button_confirm) { _,_ ->
                 startNewGame()
             }
             .show()

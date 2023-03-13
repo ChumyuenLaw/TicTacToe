@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
         android:fontFamily="@font/righteous"
-        android:text="SETTINGS"
+        android:text="@string/settings_title"
         android:textColor="#FF7A3E65"
         android:textSize="60sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:fontFamily="@font/poppins_bold"
-            android:text="Difficulty"
+            android:text="@string/settings_difficulty_header"
             android:textColor="#FF7A3E65"
             android:textSize="24sp" />
 
@@ -50,7 +50,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="5dp"
             android:fontFamily="@font/poppins"
-            android:text="Easy"
+            android:text="@string/settings_difficulty_easy"
             android:textSize="16sp" />
 
         <RadioButton
@@ -59,7 +59,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="5dp"
             android:fontFamily="@font/poppins"
-            android:text="Moderate"
+            android:text="@string/settings_difficulty_moderate"
             android:textSize="16sp" />
 
         <RadioButton
@@ -68,7 +68,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="5dp"
             android:fontFamily="@font/poppins"
-            android:text="Hard"
+            android:text="@string/settings_difficulty_hard"
             android:textSize="16sp" />
     </RadioGroup>
 
@@ -79,7 +79,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="32dp"
         android:fontFamily="@font/poppins_bold"
-        android:text="Sound"
+        android:text="@string/settings_sound_header"
         android:textColor="#FF7A3E65"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -95,7 +95,7 @@
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/poppins"
         android:checked="true"
-        android:text="Sound Effect"
+        android:text="@string/settings_sound_effects"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -110,7 +110,7 @@
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/poppins"
         android:checked="true"
-        android:text="Background Music"
+        android:text="@string/settings_sound_bgm"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -125,7 +125,8 @@
         android:layout_width="205dp"
         android:layout_height="45dp"
         android:layout_marginTop="32dp"
-        android:text="Clear Cache"
+        android:fontFamily="@font/righteous"
+        android:text="@string/settings_clear_cache"
         app:backgroundTint="#617143"
         app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -138,7 +139,8 @@
         style="@style/Widget.MaterialComponents.Button"
         android:layout_width="205dp"
         android:layout_height="45dp"
-        android:text="About Me"
+        android:fontFamily="@font/righteous"
+        android:text="@string/settings_about_me"
         app:backgroundTint="#617143"
         app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"

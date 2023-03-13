@@ -181,7 +181,6 @@ public class TicTacToeGame {
                 char curr = mBoard[i];
                 mBoard[i] = COMPUTER_PLAYER;
                 if (checkForWinner() == 3) {
-                    System.out.println("Computer is moving to " + (i + 1));
                     return i;
                 }
                 else
@@ -195,7 +194,6 @@ public class TicTacToeGame {
                 mBoard[i] = HUMAN_PLAYER;
                 if (checkForWinner() == 2) {
                     mBoard[i] = COMPUTER_PLAYER;
-                    System.out.println("Computer is moving to " + (i + 1));
                     return i;
                 }
                 else
