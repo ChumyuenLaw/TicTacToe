@@ -16,6 +16,7 @@
     <string name="settings_sound_bgm">Background Music</string>
     <string name="settings_clear_cache">Clear Cache</string>
     <string name="settings_about_me">About Me</string>
+    <string name="settings_about_me_info">An EE5415 individual project\nAuthor: Junyuan LUO (57451737)\nGithub: https://github.com/ChumyuenLaw\nWelcome to star and fork!</string>
 
     <string name="statistics_ai_wins">AI wins</string>
     <string name="statistics_player_wins">Player wins</string>
@@ -27,7 +28,7 @@
     <string name="gameboard_info_ai_term">AI is thinking…</string>
     <string name="gameboard_info_player_term">Your turn!</string>
     <string name="gameboard_info_congratulation">You win! Congratulation!</string>
-    <string name="gameboard_info_encougarement">Be more careful!</string>
+    <string name="gameboard_info_encouragement">Be more careful!</string>
     <string name="gameboard_info_think_more">Oops! Almost successful!</string>
     <string name="gameboard_button_new_game">Play Again</string>
 

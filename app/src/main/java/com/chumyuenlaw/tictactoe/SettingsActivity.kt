@@ -82,8 +82,8 @@ class SettingsActivity : AppCompatActivity() {
 
         aboutMeBtn.setOnClickListener {
             MaterialAlertDialogBuilder(this)
-                .setTitle("About Me")
-                .setMessage("An EE5415 individual project\nAuthor: Junyuan LUO\nGithub: https://github.com/ChumyuenLaw\nWelcome to star and fork!")
+                .setTitle(R.string.settings_about_me)
+                .setMessage(R.string.settings_about_me_info)
                 .setPositiveButton("OK") { _, _ -> }
                 .show()
         }

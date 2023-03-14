@@ -200,7 +200,7 @@ class MainActivity : AppCompatActivity() {
             saveBattleStatistics(userWon, computerWon, tie)
         } else {
             gameResultTW.text = getString(R.string.gameboard_gameresult_defeat)
-            information.text = getString(R.string.gameboard_info_encougarement)
+            information.text = getString(R.string.gameboard_info_encouragement)
             computerWon++
             mGameOver = true
             saveBattleStatistics(userWon, computerWon, tie)

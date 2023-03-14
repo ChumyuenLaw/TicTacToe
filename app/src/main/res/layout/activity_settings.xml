@@ -11,13 +11,13 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="36dp"
         android:fontFamily="@font/righteous"
         android:text="@string/settings_title"
         android:textColor="#FF7A3E65"
         android:textSize="60sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -139,6 +139,7 @@
         style="@style/Widget.MaterialComponents.Button"
         android:layout_width="205dp"
         android:layout_height="45dp"
+        android:layout_marginBottom="16dp"
         android:fontFamily="@font/righteous"
         android:text="@string/settings_about_me"
         app:backgroundTint="#617143"

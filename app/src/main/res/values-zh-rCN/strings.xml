@@ -8,7 +8,7 @@
     <string name="settings_difficulty_header">难度</string>
     <string name="settings_difficulty_easy">简单</string>
     <string name="settings_difficulty_moderate">中等</string>
-    <string name="settings_difficulty_hard">苦难</string>
+    <string name="settings_difficulty_hard">困难</string>
     <string name="settings_sound_header">声音</string>
     <string name="settings_sound_effects">声效</string>
     <string name="settings_sound_bgm">背景音乐</string>
@@ -20,14 +20,15 @@
     <string name="gameboard_gameresult_victory">胜利</string>
     <string name="gameboard_gameresult_defeat">失败</string>
     <string name="gameboard_gameresult_draw">平局</string>
-    <string name="gameboard_info_ai_term">AI 思考中...</string>
+    <string name="gameboard_info_ai_term">AI 思考中…</string>
     <string name="gameboard_info_player_term">到你了！</string>
     <string name="gameboard_info_congratulation">恭喜！你赢了！</string>
-    <string name="gameboard_info_encougarement">再仔细一点！</string>
+    <string name="gameboard_info_encouragement">再仔细一点！</string>
     <string name="gameboard_info_think_more">噢！差点赢了！</string>
     <string name="gameboard_button_new_game">再玩一局</string>
     <string name="gameboard_play_first_dialog_header">谁先下？</string>
     <string name="gameboard_play_first_dialog_ai">AI</string>
     <string name="gameboard_play_first_dialog_player">玩家</string>
     <string name="gameboard_play_first_dialog_button_confirm">确认</string>
+    <string name="settings_about_me_info">EE5415 个人项目\n作者：罗俊远 (57451737)\nGithub: https://github.com/ChumyuenLaw\n欢迎 Star 和 Fork！</string>
 </resources>

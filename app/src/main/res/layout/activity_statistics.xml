@@ -50,7 +50,7 @@
         android:layout_width="126dp"
         android:layout_height="126dp"
         android:layout_marginStart="44dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="72dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:srcCompat="@drawable/close_256" />
@@ -59,14 +59,14 @@
         android:id="@+id/textView_you_win"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="252dp"
         android:fontFamily="@font/righteous"
         android:text="@string/statistics_player_wins"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.303"
+        app:layout_constraintHorizontal_bias="0.31"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView_ai_number" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView_player_number"
@@ -87,7 +87,7 @@
         android:layout_width="126dp"
         android:layout_height="126dp"
         android:layout_marginStart="44dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="72dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView4"
@@ -98,12 +98,12 @@
         android:id="@+id/textView_tie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="72dp"
         android:fontFamily="@font/righteous"
         android:text="@string/statistics_draw"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.186"
+        app:layout_constraintHorizontal_bias="0.208"
         app:layout_constraintStart_toEndOf="@+id/imageView5"
         app:layout_constraintTop_toBottomOf="@+id/textView_player_number" />
 
