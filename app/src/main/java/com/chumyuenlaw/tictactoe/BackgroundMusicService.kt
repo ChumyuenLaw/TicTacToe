@@ -24,8 +24,6 @@ class BackgroundMusicService : Service() {
         super.onCreate()
 
         player = MediaPlayer.create(this, R.raw.bgm)
-        //val assetFileDescriptor = applicationContext.assets.openFd("res/raw/bgm.mp3") as AssetFileDescriptor
-        //player.setDataSource(assetFileDescriptor)
         player.isLooping = true // Set looping
         player.setVolume(50f, 50f)
     }
