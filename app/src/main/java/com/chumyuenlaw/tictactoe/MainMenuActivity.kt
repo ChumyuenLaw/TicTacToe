@@ -76,8 +76,10 @@ class MainMenuActivity : AppCompatActivity() {
     }
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
-        if (!hasFocus)
+        if (!hasFocus){
+            //stopService(Intent(this, BackgroundMusicService::class.java))
             return
+        }
         animate()
         super.onWindowFocusChanged(hasFocus)
     }
