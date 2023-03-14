@@ -119,8 +119,8 @@ class MainMenuActivity : AppCompatActivity() {
                 viewAnimator = ViewCompat.animate(view)
                     .translationY(50f).alpha(1f)
                     .setStartDelay((300 * i + 1300).toLong())
-                    .setDuration(1000)
-            } else if(view is MaterialButton){
+                    .setDuration(800)
+            } else {
                 viewAnimator = ViewCompat.animate(view)
                     .scaleY(1f)
                     .scaleX(1f)

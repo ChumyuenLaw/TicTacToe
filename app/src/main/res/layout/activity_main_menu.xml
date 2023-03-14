@@ -73,8 +73,8 @@
 
                 <TextView
                     android:id="@+id/fullscreen_content"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="230dp"
+                    android:layout_height="61dp"
                     android:fontFamily="@font/lobster"
                     android:gravity="center"
                     android:keepScreenOn="true"
