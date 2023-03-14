@@ -110,7 +110,6 @@ class MainMenuActivity : AppCompatActivity() {
             .setInterpolator(DecelerateInterpolator())
             .start()
 
-
         for (i in 0 until buttonLayout.childCount) {
             val view = buttonLayout.getChildAt(i)
             lateinit var viewAnimator: ViewPropertyAnimatorCompat
