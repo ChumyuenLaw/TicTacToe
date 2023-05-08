@@ -16,8 +16,10 @@
 13. Harmonic and good-looking UI with different fonts and colors.  
 
 ## Screenshots
-<center class="half">
-<img src="./images/home.png" width = "40%" height = "40%" alt="Homepage" align=center />   <img src="./images/chessboard.png" width = "40%" height = "40%" alt="Homepage" align=center />
-<img src="./images/statistics.png" width = "40%" height = "40%" alt="Homepage" align=center />   <img src="./images/settings.png" width = "40%" height = "40%" alt="Homepage" align=center />
-</center>
+<div style="display:inline-block">
+<img src="./images/home.png" width = "40%" height = "40%" alt="Homepage" align=center />    <img src="./images/chessboard.png" width = "40%" height = "40%" alt="Homepage" align=center />
+</div>
+<div style="display:inline-block">
+<img src="./images/statistics.png" width = "40%" height = "40%" alt="Homepage" align=center />    <img src="./images/settings.png" width = "40%" height = "40%" alt="Homepage" align=center />
+</div>
 Welcome to star and fork!
