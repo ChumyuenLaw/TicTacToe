@@ -1,4 +1,5 @@
 # TicTacToe - EE5415 Individual Project
+Explore it on [Google Play](https://play.google.com/store/apps/details?id=com.chumyuenlaw.tictactoe)!
 
 ## Features
 1. An individual menu.
