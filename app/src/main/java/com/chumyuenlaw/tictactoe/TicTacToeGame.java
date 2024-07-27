@@ -217,37 +217,46 @@ public class TicTacToeGame {
 
     public Move minimax(char[] newBoard, char player) {
 
+        // Get all the available spots
         List<Integer> availSpots = emptyIndexes(newBoard);
 
+        // Check the game board for the winner
         int winner = checkForWinner(newBoard);
-        if(winner == 3)
+        if(winner == 3) // Computer wins, get 10 marks
             return new Move(10);
-        else if (winner == 2)
+        else if (winner == 2) // Human wins, get -10 marks
             return new Move(-10);
-        else if(winner == 1)
+        else if(winner == 1) // Tie, get 0 marks
             return new Move(0);
+        // 游戏还没结束，继续执行下面的代码
 
         List<Move> moves = new ArrayList<>();
 
+        // 遍历所有空位，最后添加到 moves 内的 move 是下在对应格子的所能获得的最大分数
         for (int i = 0; i < availSpots.size(); i++) {
             Move move = new Move();
             move.index = availSpots.get(i);
 
+            // 将棋子下到该格子中，player 有可能是 COMPUTER 或 HUMAN
             newBoard[availSpots.get(i)] = player;
 
+            // 如果当前是 COMPUTER，则下一轮轮到 HUMAN 下，不断递归，最终会将棋盘下满
             Move result;
             if(player == COMPUTER_PLAYER)
                 result = minimax(newBoard, HUMAN_PLAYER);
             else
                 result = minimax(newBoard, COMPUTER_PLAYER);
-
+            // 当所有格子都被下了之后，会返回最终 Move 对象，对象里面存有本次递归的结果 (-10, 0, 10)
             move.score = result.score;
 
+            // 回溯，将格子重新设为空
             newBoard[availSpots.get(i)] = (char) (move.index + '0');
 
+            // 此时对于下在 availSpots.get(i) 的棋子，已经有了一个答案 move，将其加入到结果中。
             moves.add(move);
         }
 
+        // 对于所有可以下的空格，对 COMPUTER 来说要找出一个最大的分数才能赢；对 HUMAN 来说，要找出最小的分数才能赢
         int bestMove = 0;
         if (player == COMPUTER_PLAYER) {
             int bestScore = -10000;
