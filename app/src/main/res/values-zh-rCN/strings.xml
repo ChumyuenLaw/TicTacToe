@@ -26,7 +26,7 @@
     <string name="gameboard_info_encouragement">再仔细一点！</string>
     <string name="gameboard_info_think_more">噢！差点赢了！</string>
     <string name="gameboard_button_new_game">再玩一局</string>
-    <string name="gameboard_play_first_dialog_header">谁先下？</string>
+    <string name="gameboard_play_first_dialog_header">谁先开始？</string>
     <string name="gameboard_play_first_dialog_ai">AI</string>
     <string name="gameboard_play_first_dialog_player">玩家</string>
     <string name="gameboard_play_first_dialog_button_confirm">确认</string>
