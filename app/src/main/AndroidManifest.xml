@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TicTacToe"
         android:name=".CheckLifeCycle"
-        tools:targetApi="35">
+        tools:targetApi="36">
 
         <activity
             android:name=".SettingsActivity"
